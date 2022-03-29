@@ -1,7 +1,7 @@
 pipeline {
   agent any
-    environment{
-    PATH=/usr/share/maven
+  tools {
+    maven '3.8.5'
     }
     stages {
         stage('test') {
