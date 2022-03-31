@@ -2,10 +2,10 @@ pipeline {
   agent any
   tools {
     maven 'Maven:3.8'
-    }
+  }
   parameters {
     choice(name: 'VERSION', choices: ['2.0', '3.0', '4.0'], description: '')
-    booleanParam(name: 'executeTests', defaultValue: true , description: '')
+    booleanParam(name: 'executeTests', defaultValue: 'true' , description: '')
   }
     stages {
         stage('test') {
