@@ -5,7 +5,8 @@ pipeline {
   }
   parameters {
     choice(name: 'VERSION', choices: ['2.0', '3.0', '4.0'], description: '')
-    booleanParam(name: 'executeTests', defaultValue: 'true' , description: '')
+    booleanParam(name: 'executeTests', defaultValue: true , description: '')
+    
   }
     stages {
         stage('test') {
