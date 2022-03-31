@@ -9,12 +9,12 @@ pipeline {
   }
     stages {
         stage('test') {
-            when{
-                expression{
+            when {
+                expression {
                     param.executeTests
                 }
             }
-            steps{
+            steps {
                 echo "testing app"
                 sh 'mvn test'
             }
@@ -29,7 +29,7 @@ pipeline {
         }
 
         stage('Publish') {
-            steps{
+            steps {
                 echo "Pushing the version ${param.VERSION}"
                 sh 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 580534504601.dkr.ecr.us-east-2.amazonaws.com'
                 sh 'docker tag java-maven-app:4.0 580534504601.dkr.ecr.us-east-2.amazonaws.com/java-maven-app:4.0'
